@@ -447,3 +447,55 @@
     padding: 16px;
   }
 }
+
+/* FAQ: aligned with the other sections, but kept to a readable width */
+#intrebari mat-accordion {
+  display: block;
+  max-width: 800px;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--mat-sys-surface);
+  border: 1px solid var(--mat-sys-outline-variant);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  figcaption {
+    padding: 12px 14px;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    gap: 12px;
+  }
+
+  .gallery-item figcaption {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}

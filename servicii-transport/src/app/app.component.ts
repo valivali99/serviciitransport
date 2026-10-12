@@ -40,6 +40,7 @@ export class AppComponent {
 
   readonly navLinks = [
     { id: 'servicii', label: 'Servicii' },
+    { id: 'lucrari', label: 'Lucrări' },
     { id: 'avantaje', label: 'De ce noi' },
     { id: 'proces', label: 'Cum lucrăm' },
     { id: 'zone', label: 'Zone deservite' },
@@ -100,6 +101,37 @@ export class AppComponent {
     'Grădini',
     'Poduri',
     'Beciuri',
+  ];
+
+  readonly gallery = [
+    {
+      src: 'images/1.jpg',
+      width: 880,
+      height: 1168,
+      caption: 'Debarasare mobilier și materiale',
+      alt: 'Autoutilitară încărcată cu mobilier demontat, plăci de PAL și resturi de materiale',
+    },
+    {
+      src: 'images/2.jpg',
+      width: 864,
+      height: 1200,
+      caption: 'Debarasare locuință și mutări',
+      alt: 'Autoutilitară încărcată cu bunuri dintr-o locuință: comodă, saci și cutii',
+    },
+    {
+      src: 'images/3.jpg',
+      width: 832,
+      height: 1248,
+      caption: 'Transport deșeuri din construcții',
+      alt: 'Autoutilitară albă cu ușile deschise, încărcată cu găleți și saci cu deșeuri din construcții',
+    },
+    {
+      src: 'images/4.jpg',
+      width: 800,
+      height: 1280,
+      caption: 'Ridicare moloz de la domiciliu',
+      alt: 'Saci cu moloz pregătiți pentru ridicare în fața unei case',
+    },
   ];
 
   readonly advantages: Item[] = [

@@ -94,7 +94,22 @@
     </div>
   </section>
 
-  <section id="avantaje" class="section alt">
+  <section id="lucrari" class="section alt">
+    <div class="container">
+      <h2>Lucrări realizate</h2>
+      <p class="section-intro">Câteva dintre lucrările de debarasare și transport efectuate pentru clienții noștri.</p>
+      <div class="gallery">
+        @for (img of gallery; track img.src) {
+          <figure class="gallery-item">
+            <img [src]="img.src" [alt]="img.alt" [width]="img.width" [height]="img.height" loading="lazy" decoding="async">
+            <figcaption>{{ img.caption }}</figcaption>
+          </figure>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="avantaje" class="section">
     <div class="container">
       <h2>De ce să ne alegeți</h2>
       <div class="grid grid-4">
@@ -109,7 +124,7 @@
     </div>
   </section>
 
-  <section id="proces" class="section">
+  <section id="proces" class="section alt">
     <div class="container">
       <h2>Cum lucrăm</h2>
       <p class="section-intro">Patru pași simpli, de la primul telefon până la spațiul eliberat.</p>
@@ -127,7 +142,7 @@
     </div>
   </section>
 
-  <section id="zone" class="section alt">
+  <section id="zone" class="section">
     <div class="container">
       <h2>Zone deservite</h2>
       <p class="section-intro">
@@ -142,8 +157,8 @@
     </div>
   </section>
 
-  <section id="intrebari" class="section">
-    <div class="container narrow">
+  <section id="intrebari" class="section alt">
+    <div class="container">
       <h2>Întrebări frecvente</h2>
       <mat-accordion>
         @for (f of faqs; track f.q) {
