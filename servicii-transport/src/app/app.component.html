@@ -1,0 +1,212 @@
+<mat-toolbar class="topbar">
+  <div class="container topbar-inner">
+    <button class="brand" type="button" (click)="scrollTo('acasa')">
+      <mat-icon>local_shipping</mat-icon>
+      <span>Transport Moloz Oradea</span>
+    </button>
+
+    <nav class="nav-desktop">
+      @for (link of navLinks; track link.id) {
+        <button mat-button type="button" (click)="scrollTo(link.id)">{{ link.label }}</button>
+      }
+    </nav>
+
+    <a mat-flat-button class="call-btn" [href]="phoneLink">
+      <mat-icon>call</mat-icon>
+      {{ phoneDisplay }}
+    </a>
+
+    <button mat-icon-button class="nav-mobile" type="button" [matMenuTriggerFor]="menu" aria-label="Meniu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      @for (link of navLinks; track link.id) {
+        <button mat-menu-item type="button" (click)="scrollTo(link.id)">{{ link.label }}</button>
+      }
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<main>
+  <section id="acasa" class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow"><mat-icon>place</mat-icon> Oradea și împrejurimi</p>
+      <h1>Servicii transport moloz în Oradea</h1>
+      <p class="lead">
+        Curățenie, debarasare, manipulare și transport – ne ocupăm de tot.
+        De la moloz și mobilier vechi până la mutări complete, cu autoutilitară de 3,5 tone.
+      </p>
+      <div class="hero-actions">
+        <a mat-flat-button class="big-btn" [href]="phoneLink">
+          <mat-icon>call</mat-icon>
+          Sunați acum: {{ phoneDisplay }}
+        </a>
+        <a mat-stroked-button class="big-btn light" [href]="whatsappLink" target="_blank" rel="noopener">
+          <mat-icon>chat</mat-icon>
+          Scrieți-ne pe WhatsApp
+        </a>
+      </div>
+      <ul class="hero-points">
+        <li><mat-icon>check</mat-icon> Preț negociabil</li>
+        <li><mat-icon>check</mat-icon> Autoutilitară 3,5 t</li>
+        <li><mat-icon>check</mat-icon> Deșeuri predate spre reciclare</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="servicii" class="section">
+    <div class="container">
+      <h2>Serviciile noastre</h2>
+      <p class="section-intro">
+        Oferim servicii complete de curățenie, debarasare, manipulare și transport pentru persoane fizice și firme din Oradea.
+      </p>
+      <div class="grid grid-services">
+        @for (s of services; track s.title) {
+          <mat-card appearance="outlined" class="card">
+            <mat-card-content>
+              <div class="icon-badge"><mat-icon>{{ s.icon }}</mat-icon></div>
+              <h3>{{ s.title }}</h3>
+              <p>{{ s.text }}</p>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+
+      <div class="locations">
+        <h3>Unde intervenim</h3>
+        <mat-chip-set aria-label="Unde intervenim">
+          @for (loc of locations; track loc) {
+            <mat-chip>{{ loc }}</mat-chip>
+          }
+        </mat-chip-set>
+      </div>
+
+      <div class="eco-banner">
+        <mat-icon>recycling</mat-icon>
+        <div>
+          <h3>Responsabilitate față de mediu</h3>
+          <p>
+            În măsura posibilităților, deșeurile colectate sunt depozitate la groapa de gunoi cu colectare
+            selectivă, pentru a fi reciclate, astfel încât impactul asupra mediului să fie minim.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avantaje" class="section alt">
+    <div class="container">
+      <h2>De ce să ne alegeți</h2>
+      <div class="grid grid-4">
+        @for (a of advantages; track a.title) {
+          <div class="feature">
+            <div class="icon-badge"><mat-icon>{{ a.icon }}</mat-icon></div>
+            <h3>{{ a.title }}</h3>
+            <p>{{ a.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="proces" class="section">
+    <div class="container">
+      <h2>Cum lucrăm</h2>
+      <p class="section-intro">Patru pași simpli, de la primul telefon până la spațiul eliberat.</p>
+      <ol class="steps">
+        @for (step of steps; track step.title; let i = $index) {
+          <li class="step">
+            <span class="step-num">{{ i + 1 }}</span>
+            <div>
+              <h3><mat-icon>{{ step.icon }}</mat-icon> {{ step.title }}</h3>
+              <p>{{ step.text }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section id="zone" class="section alt">
+    <div class="container">
+      <h2>Zone deservite</h2>
+      <p class="section-intro">
+        Lucrăm în tot municipiul Oradea și în localitățile din apropiere, în județul Bihor.
+      </p>
+      <mat-chip-set aria-label="Zone deservite">
+        @for (area of areas; track area) {
+          <mat-chip><mat-icon matChipAvatar>place</mat-icon>{{ area }}</mat-chip>
+        }
+      </mat-chip-set>
+      <p class="note">Zona dumneavoastră nu apare în listă? Sunați-ne și găsim o soluție.</p>
+    </div>
+  </section>
+
+  <section id="intrebari" class="section">
+    <div class="container narrow">
+      <h2>Întrebări frecvente</h2>
+      <mat-accordion>
+        @for (f of faqs; track f.q) {
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{ f.q }}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>{{ f.a }}</p>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="section-intro">Sunați-ne pentru detalii și ofertă. Prețul este negociabil, în funcție de lucrare.</p>
+      <mat-card appearance="outlined" class="contact-card">
+        <mat-card-content>
+          <div class="contact-row">
+            <mat-icon>person</mat-icon>
+            <div>
+              <span class="label">Persoană de contact</span>
+              <strong>{{ contactName }}</strong>
+            </div>
+          </div>
+          <div class="contact-row">
+            <mat-icon>call</mat-icon>
+            <div>
+              <span class="label">Telefon</span>
+              <a [href]="phoneLink"><strong>{{ phoneDisplay }}</strong></a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <mat-icon>place</mat-icon>
+            <div>
+              <span class="label">Zonă</span>
+              <strong>Oradea, județul Bihor</strong>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <a mat-flat-button class="big-btn" [href]="phoneLink">
+              <mat-icon>call</mat-icon>
+              Sunați acum
+            </a>
+            <a mat-stroked-button class="big-btn" [href]="whatsappLink" target="_blank" rel="noopener">
+              <mat-icon>chat</mat-icon>
+              WhatsApp
+            </a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© {{ year }} Servicii Transport Moloz Oradea · {{ contactName }} · <a [href]="phoneLink">{{ phoneDisplay }}</a></p>
+  </div>
+</footer>
+
+<a mat-fab class="fab-call" [href]="phoneLink" aria-label="Sunați acum">
+  <mat-icon>call</mat-icon>
+</a>
