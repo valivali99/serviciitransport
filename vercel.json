@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "cd servicii-transport && npm ci",
+  "buildCommand": "cd servicii-transport && npm run build",
+  "outputDirectory": "servicii-transport/dist/servicii-transport/browser"
+}
