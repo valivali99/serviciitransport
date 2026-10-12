@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "serviciitransport",
+  "compatibility_date": "2025-06-01",
+  // Static site only: upload the Angular build output, no Worker script.
+  "assets": {
+    "directory": "./servicii-transport/dist/servicii-transport/browser",
+    "not_found_handling": "single-page-application"
+  }
+}
